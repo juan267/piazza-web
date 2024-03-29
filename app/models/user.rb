@@ -8,9 +8,15 @@ class User < ApplicationRecord
 
   has_many :memberships, dependent: :destroy
   has_many :organizations, through: :memberships
+  has_many :app_sessions
 
   has_secure_password
 
   normalizes :name, with: ->(name) {name.strip}
   normalizes :email, with: ->(email) {email.strip.downcase}
+
+  def self.create_app_session(email:, password:)
+    user = User.authenticate_by(email: email, password: password)
+    user.app_sessions.create if user.present?
+  end
 end

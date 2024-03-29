@@ -28,14 +28,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         user: {
           name: 'John',
           email: 'a@a.com',
-          password: 'pass'
+          password: 'a',
+          password_confirmation: 'b'
         }
       }
     end
 
     assert_response :unprocessable_entity
-    assert_select 'p.is-danger', text: I18n.t("activerecord.errors.models.user.attributes.password.too_short") do
-      
-    end
+    assert_select 'p.is-danger', text: I18n.t("activerecord.errors.models.user.attributes.password.too_short")
+    assert_select 'p.is-danger', text: I18n.t("activerecord.errors.models.user.attributes.password_confirmation.confirmation")
   end
 end
