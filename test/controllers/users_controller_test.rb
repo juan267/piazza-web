@@ -13,6 +13,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
+    assert_not_empty cookies[:app_session]
     assert_redirected_to root_path
     follow_redirect!
     assert_select '.notification.is-success', 
