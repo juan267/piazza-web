@@ -70,3 +70,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "premailer-rails", "~> 1.12"
+
+gem "letter_opener", "~> 1.10"
