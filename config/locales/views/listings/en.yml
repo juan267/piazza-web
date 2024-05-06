@@ -1,0 +1,12 @@
+en:
+  listings:
+    new:
+      title: Create an ad
+      publish: Publish ad
+    create:
+      success: Your ad has been published!
+    show:
+      posted_by: Posted by
+      edit: Edit
+      contact: Send message
+      save: Save this ad
