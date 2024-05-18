@@ -25,11 +25,15 @@ class ListingsController < ApplicationController
   end
   
   def edit
-  
+    
   end
   
   def update
-  
+    if @listing.update(listing_params)
+      redirect_to listing_path(@listing), status: :see_other, flash: {success: t('.success')}
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
   
   def show
@@ -37,7 +41,8 @@ class ListingsController < ApplicationController
   end
   
   def destroy
-  
+    @listing.destroy
+    redirect_to root_path, status: :see_other, flash: {success: t('.success')}
   end
 
   private

@@ -22,9 +22,11 @@
         <layout-group class="buttons mt-6">
           <%= button_to "#",
 class: "button is-secondary is-medium" do %>
+            <%= svg "heart", class: "icon is-small mr-3" %>
             <%= t(".save") %>
           <% end %>
           <%= link_to "#", class: "button is-primary is-medium" do %>
+            <%= svg "message", class: "icon is-small mr-3", fill: "#fff" %>
             <%= t(".contact") %>
           <% end %>
         </layout-group>
